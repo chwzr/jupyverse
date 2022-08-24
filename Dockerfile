@@ -20,5 +20,5 @@ ADD ./apergy/ipython_config.py /root/.ipython/profile_default/ipython_config.py
 ADD ./apergy/00-startup.py /root/.ipython/profile_default/startup/00-startup.py
 
 
-
+WORKDIR /home
 CMD jupyverse --auth.mode=noauth --auth.collaborative
