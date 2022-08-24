@@ -1,0 +1,8 @@
+POST http://localhost:8000/api/apergy/execute HTTP/1.1
+content-type: application/json
+
+{
+    "notebook_id": "json:notebook:notebooks/Untitled.ipynb",
+    "cell_id": "cd259f96-daf2-439f-b22d-2768fee81aa1",
+    "mode": "single"
+}

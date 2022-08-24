@@ -186,7 +186,7 @@ def init_router(router, redirect_after_root):
         with open(jlab_dir / "static" / "package.json") as f:
             package = json.load(f)
         if user:
-            user_settings = json.loads(user.settings)
+            user_settings = {} #json.loads(user.settings)
         else:
             user_settings = {}
         settings = []

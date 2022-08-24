@@ -338,3 +338,8 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.toptal.com/developers/gitignore/api/git,linux,macos,python,windows,pycharm,jupyternotebook,vscode
+
+notebooks
+.jupyter_ystore.db
+fps.log
+fps_cli_args.toml

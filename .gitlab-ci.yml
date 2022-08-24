@@ -1,0 +1,26 @@
+stages:
+  - build
+  - deploy
+
+build:
+  stage: build
+  only:
+    refs:
+      - main
+  tags:
+    - shell
+  script:
+    - docker build -t hub.cavorit.de/cavorit/apergy/jupyverse --build-arg GITLAB_TOKEN=${CI_JOB_TOKEN} .
+    - docker login -u $CI_REGISTRY_USER -p $CI_JOB_TOKEN $CI_REGISTRY
+    - docker push hub.cavorit.de/cavorit/apergy/jupyverse
+
+deploy:
+  stage: deploy
+  only:
+    refs:
+      - production
+  tags:
+    - shell
+  script:
+    - whoami
+    - ssh -i /home/gitlab-runner/.ssh/id_rsa -o StrictHostKeyChecking=no root@malachit "cd /root/apergy/jupyter/ && ./restart.sh"

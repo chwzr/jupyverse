@@ -131,6 +131,7 @@ async def create_guest(user_manager, auth_config):
         password="",
         workspace=global_user.workspace,
         settings=global_user.settings,
+        permissions={"admin": ["read", "write", "execute"]}
     )
     return await user_manager.create(UserCreate(**guest))
 
